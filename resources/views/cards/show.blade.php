@@ -8,7 +8,10 @@
 
             <ul class="list-group">
             @foreach ( $card->notes as $note )
-                <li class="list-group-item">{{ $note->body }}</li>
+                <li class="list-group-item">
+                    {{ $note->body }}
+                    ID: {{ $note->user_id }}
+                </li>
             @endforeach
             </ul>  
             
