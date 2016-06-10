@@ -9,6 +9,11 @@ use App\Card;
 
 class CardsController extends Controller
 {
+    
+//    DB::listen(function($query) {
+//        var_dump($query->sql);
+//    });
+    
     public function index( ) {
         
         //$cards = DB::table('cards')->get();
