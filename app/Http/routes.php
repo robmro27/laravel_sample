@@ -12,9 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $people = ["Robert","Kamil","Michał"];
+    //$people = [];
+    return view('welcome', compact('people'));
 });
 
-Route::get('about', function() {    
+Route::get('about', function() { 
+    
+    
     return view('pages.about');
 });
