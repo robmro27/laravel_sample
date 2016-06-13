@@ -13,11 +13,16 @@ class CreateNotesTable extends Migration
     public function up()
     {
         Schema::create('notes', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('card_id')->unsigned()->index();
-            $table->integer('user_id')->unasigned()->index();
+            $table->integer('user_id')->length(11)->unsigned();
             $table->text('body');
             $table->timestamps();
+        });
+        
+        Schema::table('notes', function($table) {
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
