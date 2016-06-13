@@ -25,6 +25,11 @@
 
 //Route::group(['middleware' => ['web']], function() {
     
+    Route::get('begin', function() {
+        flash('This is a test message', 'alert-success');
+        return redirect('/');
+    });
+
     Route::get('/', 'PagesController@home');
     Route::get('about', 'PagesController@about');
 

@@ -1,6 +1,9 @@
 @extends('layout')
 
 @section('content')
+
+    @include('flash')
+    
     @unless ( empty( $people ) )
         There are people
     @endunless
