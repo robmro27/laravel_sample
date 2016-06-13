@@ -36,3 +36,6 @@
     Route::patch('notes/{note}', 'NotesController@update');
     
 //});
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
