@@ -1,5 +1,35 @@
 <?php
 
+class Mailer 
+{
+    
+}
+
+class RegistersUsers
+{
+    protected $mailer;
+    
+    public function __construct(Mailer $mailer) {
+        $this->mailer = $mailer;
+    }
+    
+    public function setMailer(Mailer $mailer) {
+        $this->mailer = $mailer;
+    }
+}
+
+//App::bind('RegistersUsers', function() {
+//    return new RegistersUsers(new Mailer); 
+//});
+//
+//App::singleton('RegistersUsers', function() {
+//    return new RegistersUsers(new Mailer); 
+//});
+
+
+var_dump(App::make('RegistersUsers'));
+var_dump(app('RegistersUsers'));
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -25,6 +55,10 @@
 
 //Route::group(['middleware' => ['web']], function() {
     
+    Route::get('/', function(RegistersUsers $registration) {
+        var_dump($registration);
+    });
+
     Route::get('begin', function() {
         flash('This is a test message', 'alert-success');
         return redirect('/');
